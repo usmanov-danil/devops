@@ -11,6 +11,18 @@
 - Flask
 - Docker
 
+## Docker part
+
+You can easily build docker image by:
+```bash
+docker build -t moscow_time_now .
+```
+
+Also, you can check your dockerfile with _hadolint_ linter but before it [install](https://github.com/hadolint/hadolint) this tool.
+```bash
+hadolint <dockerfile>
+```
+
 
 ## Getting Started
 
@@ -20,12 +32,30 @@
 
 ### Setup
 * Clone project
-* Run in terminal `docker run`
+# Build image 
+```bash
+docker build -t moscow_time_now .
+```
+
+You also may specify argumetns to the image:
+```bash
+docker build --build-arg DEBUG=${True/False} -t moscow_time_now .
+```
+`DEBUG` by default is `True`
+
+ ### Run container 
+ ```bash
+ docker run --rm -it -p 5000:5000 moscow_time_now
+ ```
 
 ### Usage
-Open `localhost:5000`
+Open `http://localhost:5000/` if you did not provide custom port
 
-### Deployment
+### Tests
+To run tests locally:
+```bash
+pytest tests/
+```
 
 
 

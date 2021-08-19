@@ -1,4 +1,4 @@
-from app_python.main import app
+from app_python.app import app
 
 
 class TestApp():
