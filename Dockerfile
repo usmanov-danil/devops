@@ -11,10 +11,6 @@ RUN apk update
 COPY requirements.txt /app/
 RUN python -m pip --no-cache-dir install -U pip && pip3 install --no-cache-dir --ignore-installed -r requirements.txt
 
-COPY scripts/run_tests.sh /app/scripts/run_tests.sh
-RUN chmod +x /app/scripts/run_tests.sh
-
-COPY tests /app/tests
 COPY app_python /app
 
 ENV DEBUG=${DEBUG}
