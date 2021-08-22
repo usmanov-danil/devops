@@ -4,6 +4,8 @@
 
 > This repository stores code for lab 1 of DevOps course in Innopolis University.
 
+##
+Docker Hub image is `usmanovdanil/devops_lab_1`
 
 ## Built With
 
