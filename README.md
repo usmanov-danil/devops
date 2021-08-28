@@ -1,6 +1,7 @@
 
 
 # DevOps course 2021 - Pythoon app
+![main](https://github.com/usmanov-danil/devops/actions/workflows/docker-image.yml/badge.svg?branch=main)
 
 > This repository stores code for lab 1 of DevOps course in Innopolis University.
 
@@ -27,6 +28,15 @@ Also, you can check your dockerfile with _hadolint_ linter but before it [instal
 hadolint <dockerfile>
 ```
 
+## CI/CD
+### Github Actions
+Workflow is specified in the [docker-image.yml](.github/workflows/docker-image.yml).
+
+#### Jobs:
+* test stage:
+Runs unit tests
+* build stage:
+Builds docker image and push it to the [dockerhub](https://hub.docker.com/repository/docker/usmanovdanil/devops_lab_1)
 
 ## Getting Started
 
