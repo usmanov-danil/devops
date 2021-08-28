@@ -2,6 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/venv,python,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=venv,python,macos
 
+link_to_the_last_commit.txt
 ### macOS ###
 # General
 .DS_Store

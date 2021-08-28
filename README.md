@@ -1,11 +1,11 @@
 
 
-# DevOps course 2021 - lab 1
+# DevOps course 2021 - Pythoon app
 
 > This repository stores code for lab 1 of DevOps course in Innopolis University.
 
-##
-Docker Hub image is `usmanovdanil/devops_lab_1`
+
+This repository consist of flask web app that shows current Moscow time.
 
 ## Built With
 
@@ -14,6 +14,8 @@ Docker Hub image is `usmanovdanil/devops_lab_1`
 - Docker
 
 ## Docker part
+### Docker Hub image is `usmanovdanil/devops_lab_1`
+
 
 You can easily build docker image by:
 ```bash
@@ -34,7 +36,7 @@ hadolint <dockerfile>
 
 ### Setup
 * Clone project
-# Build image 
+### Build image 
 ```bash
 docker build -t moscow_time_now .
 ```
@@ -53,12 +55,10 @@ docker build --build-arg DEBUG=${True/False} -t moscow_time_now .
 ### Usage
 Open `http://localhost:5000/` if you did not provide custom port
 
-### Tests
-To run tests locally:
-```bash
-pytest tests/
-```
-
+### Unit tests
+1. Create virtual environment
+2. make `pip install -r requierments.txt`
+3. Run tests ```pytest tests/```
 
 
 ## Authors
