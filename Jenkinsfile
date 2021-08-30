@@ -9,7 +9,7 @@ pipeline {
         args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
     } 
   }
-  // stages {
+  stages {
   //   stage('Checkout') {
   //     steps {
   //       checkout scm
