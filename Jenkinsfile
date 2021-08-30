@@ -17,13 +17,17 @@ pipeline {
     }
     stage('Install packages') {
             steps {
-                bin/sh 'apk add --no-cache gcc musl-dev'
+                sh """
+                #!/bin/bash
+                apk add --no-cache gcc musl-dev
+                """
             }
         }
     stage('Setup') { // Install any dependencies you need to perform testing
       steps {
         script {
           sh """
+          #!/bin/bash
           pip install -r requirements.dev.txt -r requirements.txt
           """
         }
@@ -33,6 +37,7 @@ pipeline {
       steps {
         script {
           sh """
+          #!/bin/bash
           flake8
           """
         }
@@ -42,6 +47,7 @@ pipeline {
       steps {
         script {
           sh """
+          #!/bin/bash
           pytest tests
           """
         }
