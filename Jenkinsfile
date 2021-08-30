@@ -18,7 +18,6 @@ pipeline {
     // for example Python 3.x and NPM.
     dockerfile { filename 'Dockerfile' }
   }
-  
   stages {  // Define the individual processes, or stages, of your CI pipeline
     stage('Checkout') { // Checkout (git clone ...) the projects repository
       steps {
@@ -52,9 +51,6 @@ pipeline {
         }
       }
     }
-    
-    
-
     failure {
       script {
         msg = "Build error for ${env.JOB_NAME} ${env.BUILD_NUMBER} (${env.BUILD_URL})"
