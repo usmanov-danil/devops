@@ -18,7 +18,7 @@ pipeline {
     stage('Install packages') {
           steps {
               sh """
-              apk add --no-cache gcc musl-dev
+              apt install --no-cache gcc musl-dev
               """
           }
         }
