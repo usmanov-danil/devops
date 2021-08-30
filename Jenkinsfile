@@ -10,8 +10,8 @@ pipeline {
             args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
         } 
   }
-  stages {  // Define the individual processes, or stages, of your CI pipeline
-    stage('Checkout') { // Checkout (git clone ...) the projects repository
+  stages {
+    stage('Checkout') {
       steps {
         checkout scm
       }
@@ -24,7 +24,7 @@ pipeline {
               """
           }
         }
-    stage('Setup') { // Install any dependencies you need to perform testing
+    stage('Setup') {
       steps {
         script {
           sh """
@@ -34,7 +34,7 @@ pipeline {
         }
       }
     }
-    stage('Linting') { // Run pylint against your code
+    stage('Linting') { 
       steps {
         script {
           sh """
@@ -44,7 +44,7 @@ pipeline {
         }
       }
     }
-    stage('Unit Testing') { // Perform unit testing
+    stage('Unit Testing') {
       steps {
         script {
           sh """
