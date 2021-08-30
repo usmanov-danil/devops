@@ -18,7 +18,6 @@ pipeline {
     stage('Install packages') {
           steps {
               sh """
-              #!/bin/bash
               apk add --no-cache gcc musl-dev
               """
           }
@@ -27,7 +26,6 @@ pipeline {
       steps {
         script {
           sh """
-          #!/bin/bash
           pip install -r requirements.dev.txt -r requirements.txt
           """
         }
@@ -37,7 +35,6 @@ pipeline {
       steps {
         script {
           sh """
-          #!/bin/bash
           flake8
           """
         }
@@ -47,7 +44,6 @@ pipeline {
       steps {
         script {
           sh """
-          #!/bin/bash
           pytest tests
           """
         }
