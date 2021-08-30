@@ -100,4 +100,4 @@ jobs:
         pip install -r requirements.dev.txt
     - name: Run lint
       run: |
-        pytest flake8
+        flake8
