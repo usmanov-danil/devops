@@ -1,7 +1,6 @@
 
 pipeline {
   environment {
-      git_repo = 'https://github.com/usmanov-danil/devops'
       registry = 'usmanovdanil/devops_lab_1'
     }
   agent { 
@@ -18,7 +17,7 @@ pipeline {
     }
     stage('Install packages') {
             steps {
-                sh 'apk add --no-cache gcc musl-dev'
+                bin/sh 'apk add --no-cache gcc musl-dev'
             }
         }
     stage('Setup') { // Install any dependencies you need to perform testing
