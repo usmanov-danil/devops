@@ -20,7 +20,7 @@ pipeline {
       steps {
         script {
           sh """
-          pip install -r requirements.dev.txt -r requirements.txt
+          cd devops/ && pip install -r requirements.dev.txt -r requirements.txt
           """
         }
       }
