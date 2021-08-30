@@ -19,7 +19,7 @@ pipeline {
           steps {
               sh """
               apt update
-              apt install gcc musl-dev
+              apt install --no-install-recommends gcc musl-dev
               """
           }
         }
