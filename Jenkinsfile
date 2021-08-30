@@ -16,11 +16,16 @@ pipeline {
         checkout scm
       }
     }
+    stage('List') {
+            steps {
+                sh 'ls -al'
+            }
+        }
     stage('Setup') { // Install any dependencies you need to perform testing
       steps {
         script {
           sh """
-          cd devops/ && pip install -r requirements.dev.txt -r requirements.txt
+          pip install -r requirements.dev.txt -r requirements.txt
           """
         }
       }
