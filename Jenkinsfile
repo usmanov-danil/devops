@@ -43,12 +43,5 @@ pipeline {
         }
       }
     }
-    failure {
-      script {
-        msg = "Build error for ${env.JOB_NAME} ${env.BUILD_NUMBER} (${env.BUILD_URL})"
-        
-        slackSend message: msg, channel: env.SLACK_CHANNEL
-    }
-  }
 }
 }
