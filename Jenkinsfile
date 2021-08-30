@@ -16,9 +16,9 @@ pipeline {
         checkout scm
       }
     }
-    stage('List') {
+    stage('Install packages') {
             steps {
-                sh 'ls -al'
+                sh 'apk add --no-cache gcc musl-dev'
             }
         }
     stage('Setup') { // Install any dependencies you need to perform testing
