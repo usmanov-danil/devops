@@ -6,7 +6,7 @@ pipeline {
   agent { 
         docker { 
             image 'python:3.9.6-alpine3.14'
-            args '-u 0'
+            args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
         } 
     }
   stages {  // Define the individual processes, or stages, of your CI pipeline
