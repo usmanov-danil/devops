@@ -5,7 +5,7 @@ pipeline {
   }
   agent { 
     docker { 
-        image 'python:3.9.6-alpine3.14'
+        image 'python:3.9.6-buster'
         args '-u root -v $HOME/.cache:/root/.cache -v /var/run/docker.sock:/var/run/docker.sock'
     } 
   }
