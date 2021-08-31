@@ -10,11 +10,11 @@ pipeline {
     } 
   }
   stages {
-  //   stage('Checkout') {
-  //     steps {
-  //       checkout scm
-  //     }
-  //   }
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
     stage('Install packages') {
           steps {
               sh """
@@ -50,5 +50,18 @@ pipeline {
         }
       }
     }
+
+    stage('Build and Deploy') {
+          steps {
+            script {
+                def image = docker.build('$registry:jenci-$BUILD_NUMBER')
+                docker.withRegistry('', 'dockerhub') {
+                    image.push()
+                }
+            }
+          }
+        }  
+
+
   }
 }
