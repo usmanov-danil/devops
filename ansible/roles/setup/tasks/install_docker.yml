@@ -1,0 +1,66 @@
+---
+# This playbook contains tasks for docker installation
+
+# sudo apt-get install *
+- name: Install docker packages
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - apt-transport-https
+    - ca-certificates
+    - software-properties-common
+    - curl
+  tags:
+    - docker
+
+- name: Add an apt signing key for Docker
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add apt repository for stable version
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+    state: present
+  tags:
+    - docker
+
+- name: Install Docker
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  loop:
+    - docker-ce
+    - docker-ce-cli 
+    - containerd.io
+  notify: Start docker on boot
+  tags:
+    - docker
+
+# sudo groupadd docker
+- name: Create "docker" group
+  group:
+    name: "{{ docker_group }}"
+    state: present
+  tags:
+    - docker
+
+- name: Add remote "ubuntu" user to "docker" group
+  user:
+    name: "{{ ansible_user }}"
+    group: "{{ docker_group }}"
+    append: yes
+  tags:
+    - docker
+
+- name: Download docker-compose
+  shell: |
+    curl -L "https://github.com/docker/compose/releases/download/1.27.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+- name: Change mod
+  shell: |
+    chmod +x /usr/local/bin/docker-compose
+
