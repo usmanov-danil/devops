@@ -69,7 +69,7 @@ Open `http://localhost:5000/` if you did not provide custom port
 ### Unit tests
 1. Create virtual environment
 2. make `pip install -r requierments.txt`
-3. Run tests ```pytest tests/```
+3. Run tests ```pytest app_python/tests```
 
 
 ## Authors

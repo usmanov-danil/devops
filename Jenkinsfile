@@ -45,7 +45,7 @@ pipeline {
       steps {
         script {
           sh """
-          pytest tests
+          pytest app_python/tests
           """
         }
       }
