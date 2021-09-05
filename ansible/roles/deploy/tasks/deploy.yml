@@ -1,0 +1,41 @@
+---
+# This playbook contains tasks for deploy app_python
+
+
+- name: Install package of compose for python
+  pip:
+    name: " {{ item }} "
+    executable: pip3
+    state: latest
+  loop:
+    - pip
+    - docker
+    - compose
+    - docker-compose
+
+
+- name: Create app_python folder
+  file:
+    path: /opt/app_python
+    state: directory
+  tags:
+    - deploy
+
+- name: Copy docker-compose file
+  copy:
+    src: ../../../docker-compose.yaml
+    dest: /opt/app_python/docker-compose.yaml
+    mode: '755'
+  tags:
+    - deploy
+
+- name: Start compose components
+  community.docker.docker_compose:
+    project_src: /opt/app_python
+    project_name: app_python
+    state: present
+    pull: yes
+    build: no
+    restarted: yes
+  tags:
+    - deploy

@@ -19,6 +19,7 @@
     - vim
     - net-tools
     - curl
+    - python3-pip
 
   tags:
     - setup

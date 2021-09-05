@@ -1,0 +1,6 @@
+# Import deploy tasks
+
+- name: Import deploy tasks
+  include_tasks: deploy.yml
+  tags:
+    - deploy
