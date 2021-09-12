@@ -8,3 +8,8 @@ services:
       - /tmp:/tmp/logs
     ports:
       - "5000:5000"
+    deploy:
+      resources:
+        limits:
+          memory: 50M
+          cpus: '0.15'

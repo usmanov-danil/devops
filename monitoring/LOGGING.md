@@ -24,3 +24,12 @@ Also, I am an ambassador of `loguru`. I prefer to use this logging manager inste
 4. Use the Correct Levels When Logging
 5. Include a Timestamp for Each Log Entry
 6. Use the Rotating
+
+
+## Dashboards
+![](images/prometheus.png)
+![](images/prometheus_loki.png)
+![](images/prometheus_dashboard1.png)
+![](images/prometheus_dashboard2.png)
+![](images/loki_dashboard1.png)
+![](images/loki_dashboard2.png)
