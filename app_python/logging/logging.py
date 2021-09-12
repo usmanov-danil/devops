@@ -29,6 +29,7 @@ class InterceptHandler(logging.Handler):
             level, record.getMessage()
         )
 
+
 def setup_logger():
     logging.getLogger().handlers = [InterceptHandler()]
     logger.add('/tmp/logs/app_python.log', level='INFO', rotation='1 day')
