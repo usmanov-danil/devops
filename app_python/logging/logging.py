@@ -1,9 +1,9 @@
 import logging
-from typing import NewType
+from typing import Any, Dict, NewType
 
 from loguru import logger
 
-LoguruHandler = NewType('LoguruHandler', dict[str, any])
+LoguruHandler = NewType('LoguruHandler', Dict[str, Any])
 
 
 class InterceptHandler(logging.Handler):
