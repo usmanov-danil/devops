@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    networks:
+      - private
+
+  promtail:
+    image: grafana/promtail:2.3.0
+    volumes:
+      - ${PWD}/monitoring/promtail.yml:/etc/promtail/promtail.yml
+      - /tmp:/tmp
+    ports:
+      - "9080:9080"
+    command: -config.file=/etc/promtail/promtail.yml
+    networks:
+      - private
+
+  loki:
+    image: grafana/loki:2.3.0
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    networks:
+      - private
+
+networks:
+  private:
