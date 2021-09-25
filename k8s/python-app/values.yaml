@@ -50,3 +50,12 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+secrets:
+   name: secret
+   username: python-app
+
+resources:
+   limits:
+     cpu: ".5"
+     memory: "256Mi"
