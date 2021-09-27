@@ -60,11 +60,12 @@ docker build --build-arg DEBUG=${True/False} -t moscow_time_now .
 
  ### Run container 
  ```bash
- docker run --rm -it -p 5000:5000 moscow_time_now
+ docker run --rm -it -p 5000:5000 -v data:/home/app/data moscow_time_now
  ```
 
 ### Usage
 Open `http://localhost:5000/` if you did not provide custom port
+Open `http://localhost:5000/visits` if you did not provide custom port
 
 ### Unit tests
 1. Create virtual environment

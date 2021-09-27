@@ -10,6 +10,7 @@ RUN apk update
 
 COPY requirements.txt /app/
 RUN python -m pip --no-cache-dir install -U pip && pip3 install --no-cache-dir --ignore-installed -r requirements.txt
+RUN mkdir data
 
 COPY app_python /app
 

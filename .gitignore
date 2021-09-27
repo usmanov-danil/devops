@@ -1,7 +1,7 @@
 
 # Created by https://www.toptal.com/developers/gitignore/api/venv,python,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=venv,python,macos
-
+app-data
 
 # Created by https://www.toptal.com/developers/gitignore/api/terraform,vagrant
 # Edit at https://www.toptal.com/developers/gitignore?templates=terraform,vagrant

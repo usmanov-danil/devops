@@ -9,6 +9,7 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
+  work-dir: app/files
 
 imagePullSecrets: []
 nameOverride: ""
@@ -59,3 +60,4 @@ resources:
    limits:
      cpu: ".5"
      memory: "256Mi"
+

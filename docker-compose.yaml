@@ -6,6 +6,7 @@ services:
     image: usmanovdanil/devops_lab_1
     volumes:
       - /tmp:/tmp/logs
+      - "appdata:/home/app/data"
     ports:
       - "5000:5000"
     deploy:
