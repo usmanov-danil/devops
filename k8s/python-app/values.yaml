@@ -29,6 +29,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
+  name: pyhon-app
   type: LoadBalancer
   port: 5000
 
@@ -53,11 +54,23 @@ tolerations: []
 affinity: {}
 
 secrets:
-   name: secret
-   username: python-app
+  name: secret
+  username: python-app
 
 resources:
-   limits:
-     cpu: ".5"
-     memory: "256Mi"
+  limits:
+    cpu: ".5"
+    memory: "256Mi"
+
+statefulSet:
+  podManagementPolicy: "Parallel"
+  volumeClaimTemplates:
+    spec: 
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 256M
+
+configMap:
+  enabled: false
 
