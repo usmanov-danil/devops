@@ -9,7 +9,10 @@ image:
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
-  work-dir: app/files
+
+volumes:
+  visits: home/app/files
+  wget: home/app/wget
 
 imagePullSecrets: []
 nameOverride: ""
